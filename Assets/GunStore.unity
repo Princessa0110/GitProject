@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 710617859}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
@@ -1736,6 +1736,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &175588354 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000010446289680, guid: 7dbdac7578b02dd4bb65f70dc540aed1, type: 3}
+  m_PrefabInstance: {fileID: 175588349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &193146035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6168,6 +6173,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4637293396423180, guid: 1f9489e9fa20c61489963038583f83fb, type: 3}
   m_PrefabInstance: {fileID: 706316475}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &710617858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 710617859}
+  m_Layer: 3
+  m_Name: Touch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &710617859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710617858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0171, z: -0.066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 175588354}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &718022409
 PrefabInstance:
   m_ObjectHideFlags: 0
