@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     private const string GRIP = "Grip";
-    private const string TRIGER = "Triger";
+    private const string TRIGER = "Trigger";
     [SerializeField] private Animator _animator;
 
     [SerializeField] private InputActionProperty _gripAction;
