@@ -1,75 +1,86 @@
-using System;
+using UnityEngine;
+using UnityEngine.XR;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(XRGrabInteractable))]
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] protected float shootingForce; //���� ��������
-    [SerializeField] protected Transform bulletSpawn;
-    [SerializeField] protected float recoilForce; //���� ������
-    [SerializeField] protected float damge; //����
+    public int maxammo;
+    private int currentammo;
 
-    private Rigidbody rigidbody;
-    private XRGrabInteractable interactableWeapon;
+    public AudioClip reloadSound;
+    public AudioClip shootSound;
 
-    protected virtual void Awake()
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+    public float bulletSpeed;
+    public float bulletLifetime = 2f;
+
+    private bool triggerPressed = false;
+    private float timer = 0f;
+    private float reloadTime = 5f;
+
+    private bool _isReloading = false;
+
+    private AudioSource audioSource;  
+    void Start()
+{
+    audioSource = GetComponent<AudioSource>();
+    audioSource.playOnAwake = false;
+}
+
+    void Update()
     {
-        interactableWeapon = GetComponent<XRGrabInteractable>();
-        rigidbody = GetComponent<Rigidbody>();
-        SetupInteractableWeaponEvents();
+        if (_isReloading)
+        {
+            timer += Time.deltaTime;
+
+            if (!(timer >= reloadTime))
+            {
+                return;
+            }
+   
+                
+            currentammo = maxammo;
+            _isReloading = false;
+
+            timer = 0;
+
+            return;
+        }
+
+        var device = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+        
+        if (device.TryGetFeatureValue(CommonUsages.triggerButton, out var triggerValue) && triggerValue && !triggerPressed)
+        {
+            triggerPressed = true;
+
+            if (currentammo <= 0 && !_isReloading)
+            {
+                Reload();
+            }
+            
+            ShootBullet();
+        }
+        else if (!triggerValue)
+        {
+            triggerPressed = false;
+        }
     }
 
-    private void SetupInteractableWeaponEvents()
+    private void Reload()
     {
-        interactableWeapon.onSelectEntered.AddListener(PickAppWeapon);
-        interactableWeapon.onSelectEntered.AddListener(DropWeapon);
-        interactableWeapon.onSelectEntered.AddListener(StartShooting);
-        interactableWeapon.onSelectEntered.AddListener(StopShooting);
-
+        _isReloading = true;
+        audioSource.PlayOneShot(reloadSound);
     }
 
-    protected virtual void StopShooting(XRBaseInteractor interactor)
+    void ShootBullet()
     {
-        throw new NotImplementedException();
-    }
-
-    protected virtual void StartShooting(XRBaseInteractor interactor)
-    {
-        throw new NotImplementedException();
-    }
-
-    private void DropWeapon(XRBaseInteractor interactor)
-    {
-        interactor.GetComponent<MeshHidder>().Show();
-    }
-
-    private void PickAppWeapon(XRBaseInteractor interactor)
-    {
-        interactor.GetComponent<MeshHidder>().Hide();
-    }
-
-    protected virtual void Shoot()
-    {
-        ApplyRecoil();
-    }
-
-    private void ApplyRecoil()
-    {
-        rigidbody.AddRelativeForce(Vector3.back * recoilForce, ForceMode.Impulse);
-    }
-
-    public float GetShootingForce()
-    {
-        return shootingForce;
-    }
-
-    public float GetDamage()
-    {
-        return damge;
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.velocity = bulletSpawn.forward * bulletSpeed;
+        Destroy(bullet, bulletLifetime);
+        currentammo--;
+        audioSource.PlayOneShot(shootSound);
     }
 }
