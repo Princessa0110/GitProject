@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -23,10 +24,13 @@ public class Shooting : MonoBehaviour
     private bool _isReloading = false;
 
     private AudioSource audioSource;  
+    public Text ammoText;
     void Start()
 {
     audioSource = GetComponent<AudioSource>();
     audioSource.playOnAwake = false;
+
+    currentammo = maxammo;
 }
 
     void Update()
@@ -83,4 +87,6 @@ public class Shooting : MonoBehaviour
         currentammo--;
         audioSource.PlayOneShot(shootSound);
     }
+
+    
 }
