@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour
     private bool _isReloading = false;
 
     private AudioSource audioSource;  
-    public Text ammoText;
+    public TMPro.TextMeshPro ammoText;
     void Start()
 {
     audioSource = GetComponent<AudioSource>();
