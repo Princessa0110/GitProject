@@ -9,7 +9,6 @@ public class Shooting : MonoBehaviour
     private int currentammo;
 
     [SerializeField] private PlayerShoot _playerShoot;
-    [SerializeField] private TMPro.TextMeshPro _ammoText;
 
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
@@ -21,11 +20,6 @@ public class Shooting : MonoBehaviour
 
     private bool _isReloading = false;
     private bool _isReloaded;
-
-    private void Start()
-    {
-        UpdateAmmotext();
-    }
 
     private void Update()
     {
@@ -57,7 +51,7 @@ public class Shooting : MonoBehaviour
         
         timer = 0;
         
-        UpdateAmmotext();
+        
     }
     
     private void Reload()
@@ -78,7 +72,6 @@ public class Shooting : MonoBehaviour
         Destroy(bullet, bulletLifetime);
         currentammo--;
         
-        UpdateAmmotext();
     }
     
     public void SetUp()
@@ -86,8 +79,5 @@ public class Shooting : MonoBehaviour
         _playerShoot.SetUpCurrentWeapon(this);
     }
 
-    private void UpdateAmmotext()
-    {
-        _ammoText.text = $"Ammo: {maxammo}";
-    }
+   
 }
