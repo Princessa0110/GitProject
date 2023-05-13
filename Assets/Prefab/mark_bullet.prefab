@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1510871464847815925}
   - component: {fileID: 1510871464847815924}
   - component: {fileID: -760303980748679077}
+  - component: {fileID: 2291946146710322720}
   m_Layer: 3
   m_Name: mark_bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,3 +212,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &2291946146710322720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8639148464163062783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2088b0813bf4c543833d58c87d2d105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
