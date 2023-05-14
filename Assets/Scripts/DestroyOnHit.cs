@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class DestroyOnHit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private TargetSpawnManager targetSpawnManager;
+
+    private void Start() 
     {
-        
+        targetSpawnManager = FindObjectOfType<TargetSpawnManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other) 
     {
-        
+        // Проверяем, что столкнулись с пулей
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            // Удаляем мишень и увеличиваем счетчик очков
+            Destroy(gameObject);
+            targetSpawnManager.TargetDestroyed();
+            targetSpawnManager.IncreaseScore();
+        }
     }
 }
