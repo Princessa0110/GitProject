@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        Destroy(gameObject); //уничтажаем пулю при столкновкнии
+        if (collision.CompareTag("Target"))
+        {
+            Destroy(gameObject); //уничтажаем пулю при столкновкнии
+            Destroy(collision.gameObject);
+        }
     }
 }

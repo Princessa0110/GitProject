@@ -25,6 +25,7 @@ public class TargetSpawnManager : MonoBehaviour
         if (spawningEnabled && targetsSpawned < maxTargets)
         {
             spawnTimer += Time.deltaTime;
+            
             if (spawnTimer >= spawnRate)
             {
                 SpawnTarget();

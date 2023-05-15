@@ -26,26 +26,11 @@ public class Shooting : MonoBehaviour
     public AudioClip fire;
     public AudioClip reload;
 
-    private AudioSource _audioSourse;
-
-    private bool _isStartedGame = false;
-
-    private void Awake()
-    {
-        _audioSourse = GetComponent<AudioSource>(); //получаем сслыку
-    }
-
-    private void Start() 
-    {
-        if(!_isStartedGame)
-        {
-            _audioSourse.enabled = false; //отключаем звуковой эффект при запуске игры
-        }
-    }
+    public AudioSource _audioSource;
 
     public void UpdateAmmoCurrent()
     {
-        ammoText.text = $"{currentammo}";
+        ammoText.text = currentammo.ToString();
     }
 
     private void Update()
@@ -85,10 +70,7 @@ public class Shooting : MonoBehaviour
     {
         _isReloading = true;
 
-        if(_audioSourse.enabled)
-        {
-            _audioSourse.PlayOneShot(reload);
-        }
+        _audioSource.PlayOneShot(reload);
 
         UpdateAmmoCurrent();
     }
@@ -105,11 +87,8 @@ public class Shooting : MonoBehaviour
         rb.velocity = bulletSpawn.forward * bulletSpeed;
         Destroy(bullet, bulletLifetime);
         currentammo--;
-
-        if(_audioSourse.enabled)
-        {
-            _audioSourse.PlayOneShot(fire);
-        }
+        
+        _audioSource.PlayOneShot(fire);
 
         UpdateAmmoCurrent(); //обновляем счетчик патронов
 
@@ -118,9 +97,5 @@ public class Shooting : MonoBehaviour
     public void SetUp()
     {
         _playerShoot.SetUpCurrentWeapon(this);
-
-        _isStartedGame = true; //установим флаг, что игра была запущена
     }
-
-   
 }

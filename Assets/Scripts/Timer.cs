@@ -11,14 +11,13 @@ public class Timer : MonoBehaviour
    public TargetSpawnManager targetSpawnManager;
    private float timeRemaining;
 
-    private void Start() {
+    private void Start() 
+    {
         timeRemaining = timeLimit;
     }
    private void Update() 
    {
-       
-        
-            if (timeRemaining > 0f)
+       if (timeRemaining > 0f)
             {
                 timeRemaining -= Time.deltaTime;
                 timerText.text = $"{Mathf.RoundToInt(timeRemaining)}";

@@ -18,7 +18,13 @@ public class PlayerShoot : MonoBehaviour
 
         if (_rightHand.TryGetFeatureValue(CommonUsages.triggerButton, out var triggerValue) && triggerValue && !_triggerPressed)
         {
+            
             _triggerPressed = true;
+
+            if (_currentWeapon == null)
+            {
+                return;
+            }
 
             _currentWeapon.ShootBullet();
         }

@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System .Collections.Generic;
 using UnityEngine;
 
 public class DestroyOnHit : MonoBehaviour
@@ -13,9 +13,10 @@ public class DestroyOnHit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        // Проверяем, что столкнулись с пулей
         if (other.gameObject.CompareTag("Bullet"))
         {
+            Debug.Log("2");
+            
             // Удаляем мишень и увеличиваем счетчик очков
             Destroy(gameObject);
             targetSpawnManager.TargetDestroyed();
