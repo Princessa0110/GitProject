@@ -19547,7 +19547,7 @@ MonoBehaviour:
   _playerShoot: {fileID: 2012873312}
   bulletPrefab: {fileID: 8639148464163062783, guid: 328fc4552a790794cb8ac7aa82ac2d5e, type: 3}
   bulletSpawn: {fileID: 1394539573}
-  bulletSpeed: 30
+  bulletSpeed: 31
   bulletLifetime: 3
   ammoText: {fileID: 625765725}
   fire: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}

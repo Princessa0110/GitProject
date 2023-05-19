@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 71460457641405293}
   - component: {fileID: 5199047990182222880}
-  - component: {fileID: -1574161233449193934}
+  - component: {fileID: -3605932900941931710}
   m_Layer: 0
   m_Name: MoveTarget
   m_TagString: Target
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf9a4ee76a87754987bb3381c3e54f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!64 &-1574161233449193934
+--- !u!64 &-3605932900941931710
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 6333450698888632559}
   - component: {fileID: 6305719877598396697}
   - component: {fileID: 6316223416104309627}
-  - component: {fileID: 6362254737742656876}
   - component: {fileID: 6362254737742656879}
   - component: {fileID: 3346101421551336965}
+  - component: {fileID: 169203979851889172}
   m_Layer: 0
   m_Name: Target_1
   m_TagString: Target
@@ -153,8 +153,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6336878833486028087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0492}
-  m_LocalScale: {x: 1, y: 1, z: 14.994098}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0128}
+  m_LocalScale: {x: 1, y: 1, z: 26.72848}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 71460457641405293}
@@ -212,19 +212,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6362254737742656876
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6336878833486028087}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.41289514, y: 0.7447188, z: 0.010569056}
-  m_Center: {x: -0.0000043809414, y: -0.07905638, z: -0.00000021839514}
 --- !u!114 &6362254737742656879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,3 +240,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf9a4ee76a87754987bb3381c3e54f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &169203979851889172
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336878833486028087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 14063de4b213545468261ca2efe75b96, type: 3}
