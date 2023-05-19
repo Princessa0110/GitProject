@@ -11,13 +11,23 @@ public class StartMode : MonoBehaviour
     public void Start()
     {
         startButton.onClick.AddListener(StartGame);
+
         timer.enabled = false;
         targetSpawnManager.enabled = false;
     }
 
     public void StartGame()
     {
-        timer.enabled = true;
-        targetSpawnManager.enabled = true;
+        // Проверяем, включены ли уже компоненты timer и targetSpawnManager
+        if (!timer.enabled && !targetSpawnManager.enabled)
+        {
+            timer.enabled = true;
+            targetSpawnManager.enabled = true;
+        }
+        else
+        {
+            timer.Restart();
+            targetSpawnManager.Restart();
+        }
     }
 }

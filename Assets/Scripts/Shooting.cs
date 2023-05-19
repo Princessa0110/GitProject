@@ -21,12 +21,14 @@ public class Shooting : MonoBehaviour
     private bool _isReloading = false;
     private bool _isReloaded;
 
-    public Text ammoText;
+    public TextMeshProUGUI ammoText;
 
     public AudioClip fire;
     public AudioClip reload;
 
-    public AudioSource _audioSource;
+    private AudioSource _audioSourse;
+
+    private bool _isStartedGame = false;
 
     public void UpdateAmmoCurrent()
     {
@@ -61,16 +63,17 @@ public class Shooting : MonoBehaviour
         _isReloading = false;
         _isReloaded = false;
         
-        timer = 0;
-        
-        
+        timer = 0;   
     }
     
     private void Reload()
     {
         _isReloading = true;
 
-        _audioSource.PlayOneShot(reload);
+        if(_audioSourse.enabled)
+        {
+            _audioSourse.PlayOneShot(reload);
+        }
 
         UpdateAmmoCurrent();
     }
@@ -87,8 +90,11 @@ public class Shooting : MonoBehaviour
         rb.velocity = bulletSpawn.forward * bulletSpeed;
         Destroy(bullet, bulletLifetime);
         currentammo--;
-        
-        _audioSource.PlayOneShot(fire);
+
+        if(_audioSourse.enabled)
+        {
+            _audioSourse.PlayOneShot(fire);
+        }
 
         UpdateAmmoCurrent(); //обновляем счетчик патронов
 
@@ -97,5 +103,7 @@ public class Shooting : MonoBehaviour
     public void SetUp()
     {
         _playerShoot.SetUpCurrentWeapon(this);
+
+        _isStartedGame = true; //установим флаг, что игра была запущена
     }
 }
