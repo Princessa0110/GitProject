@@ -30,9 +30,14 @@ public class Shooting : MonoBehaviour
 
     private bool _isStartedGame = false;
 
+    private void Awake()
+    {
+        _audioSourse = GetComponent<AudioSource>();
+    }
+
     public void UpdateAmmoCurrent()
     {
-        ammoText.text = currentammo.ToString();
+        ammoText.text = $"Ammo: {currentammo.ToString()}";
     }
 
     private void Update()

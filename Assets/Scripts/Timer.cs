@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
         if (timeRemaining > 0f)
         {
             timeRemaining -= Time.deltaTime;
-            timerText.text = $"{Mathf.RoundToInt(timeRemaining)}";
+            timerText.text = $"Time: {Mathf.RoundToInt(timeRemaining)}";
         }
         else if(!_isTimeUp)
         {
