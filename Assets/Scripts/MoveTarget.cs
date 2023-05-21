@@ -14,10 +14,10 @@ public class MoveTarget : MonoBehaviour
         if (Vector3.Distance(waypoints[currentTarget].transform.position, transform.position) < waypointRadius)
         {
             currentTarget++;
-        if (currentTarget >= waypoints.Length)
-        {
-            currentTarget = 0;
-        }
+            if (currentTarget >= waypoints.Length)
+            {
+                currentTarget = 0;
+            }
         }
 
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentTarget].transform.position,
