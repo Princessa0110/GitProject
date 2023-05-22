@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     public float bulletLifetime = 2f;
 
     private float timer = 0f;
-    private float reloadTime = 5f;
+    private float reloadTime = 3f;
 
     private bool _isReloading = false;
     private bool _isReloaded;
@@ -110,5 +110,10 @@ public class Shooting : MonoBehaviour
         _playerShoot.SetUpCurrentWeapon(this);
 
         _isStartedGame = true; //установим флаг, что игра была запущена
+    }
+
+    public void Clean()
+    {
+        _playerShoot.SetUpCurrentWeapon(null);
     }
 }
