@@ -11,12 +11,12 @@ public class TargetSpawnManager : MonoBehaviour
     public Transform[] spawnPositions;
 
     private int targetsSpawned = 0;
-    private float spawnTimer = 0f;
+    private float spawnTimer = 0f; 
     private bool spawningEnabled = true;
     private int lastSpawnedPositionIndex = -1;
 
     public TextMeshProUGUI textScore;
-    public int Score = 10 ;
+    public int Score = 0;
 
     private void Update()
     {
