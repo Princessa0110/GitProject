@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class WalkBehaviour : StateMachineBehaviour
 {
+    private const float walkchangechanse = 0.4f;
+
     float timer;
     List<Transform> points = new List<Transform>();
     NavMeshAgent agent;
@@ -30,7 +32,16 @@ public class WalkBehaviour : StateMachineBehaviour
        timer += Time.deltaTime;
         if(timer > 20)
         {
-            animator.SetBool("IsWalk", false);
+            if(Random.Range(0f, 1f) < walkchangechanse)
+            {
+                animator.SetBool("IsWalking", true);
+                animator.SetBool("IsWalk", false);
+
+            }
+            else
+            {
+                animator.SetBool("IsWalk", false);
+            }
         }
     }
 

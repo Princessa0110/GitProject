@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
-public class StartMode : MonoBehaviour
+public class StartBatn2 : MonoBehaviour
 {
-    public Timer timer;
-    public TargetSpawnManager targetSpawnManager;
+    public Timer2 timer;
+    public TargetSpawnManager2 targetSpawnManager;
     public Button startButton;
 
     public void Start()
@@ -18,7 +18,7 @@ public class StartMode : MonoBehaviour
     }
     public void StartGame()
     {
-        // ĞŸÑ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼, Ğ²ĞºĞ»ÑÑ‡ĞµĞ½Ñ‹ Ğ»Ğ¸ ÑƒĞ¶Ğµ ĞºĞ¾Ğ¼Ğ¿Ğ¾Ğ½ĞµĞ½Ñ‚Ñ‹ timer Ğ¸ targetSpawnManager
+        // Ïğîâåğÿåì, âêëş÷åíû ëè óæå êîìïîíåíòû timer è targetSpawnManager
         if (!timer.enabled && !targetSpawnManager.enabled)
         {
             timer.enabled = true;
@@ -26,14 +26,8 @@ public class StartMode : MonoBehaviour
         }
         else
         {
-            timer.Restart();
-            targetSpawnManager.Restart();
-
-
-            if (targetSpawnManager.Score >= 0)
-            {
-                targetSpawnManager.Score = 0;
-            }
+            timer.Restart2();
+            targetSpawnManager.Restart2();
         }
     }
 }

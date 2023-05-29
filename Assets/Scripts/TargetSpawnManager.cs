@@ -16,7 +16,8 @@ public class TargetSpawnManager : MonoBehaviour
     private int lastSpawnedPositionIndex = -1;
 
     public TextMeshProUGUI textScore;
-    public int Score = 0;
+
+    public float Score;
 
     private void Update()
     {
@@ -76,17 +77,26 @@ public class TargetSpawnManager : MonoBehaviour
     {
         Score += 10;
         textScore.text = $"Score: {Score}" ;
+
+
+        Debug.Log(Score);
     }
     public void Restart()
     {
+      
+        targetsSpawned = 0;
+        spawningEnabled = true;
+        Score = 0;
+        textScore.text = $"Score: {Score}";
+
+        Debug.Log(Score);
+
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+
         foreach (GameObject target in targets)
         {
             Destroy(target);
         }
-        targetsSpawned = 0;
-        spawningEnabled = true;
-        Score = 0;
-        textScore.text = $"Score: {Score}" ;
+
     }
 }
