@@ -7,7 +7,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-   public float timeLimit;
+   [HideInInspector]public float timeLimit;
    public TextMeshProUGUI timerText;
    public TargetSpawnManager targetSpawnManager;
    public float timeRemaining;

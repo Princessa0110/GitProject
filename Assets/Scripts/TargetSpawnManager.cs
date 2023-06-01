@@ -6,8 +6,8 @@ public class TargetSpawnManager : MonoBehaviour
 {
     public GameObject targetPrefab;
     public GameObject MoveTargetPrefab;
-    public float spawnRate;
-    public int maxTargets;
+    [HideInInspector] public float spawnRate;
+    [HideInInspector] public int maxTargets;
     public Transform[] spawnPositions;
 
     private int targetsSpawned = 0;

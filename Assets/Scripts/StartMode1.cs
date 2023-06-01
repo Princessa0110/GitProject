@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartMode : MonoBehaviour
+public class StartMode1 : MonoBehaviour
 {
     public TargetSpawnManager targetSpawnManager;
     public Timer timer;
@@ -11,17 +11,17 @@ public class StartMode : MonoBehaviour
         timer.enabled = false;
         targetSpawnManager.enabled = false; 
 
-        GetComponent<Button>().onClick.AddListener(EnableEasyMode);
+        GetComponent<Button>().onClick.AddListener(EnableMediumMode);
     }
 
-    public void EnableEasyMode()
+    public void EnableMediumMode()
     {
         timer.enabled = true;
         targetSpawnManager.enabled = true; 
-        // Установите параметры для режима "Easy"
-        targetSpawnManager.spawnRate = 3f;
-        targetSpawnManager.maxTargets = 3;
-        timer.timeLimit = 60f;
+        // Установите параметры для режима "Medium"
+        targetSpawnManager.spawnRate = 3;
+        targetSpawnManager.maxTargets = 5;
+        timer.timeLimit = 45f;
 
         // Перезапустите игру
         targetSpawnManager.Restart();
