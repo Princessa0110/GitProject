@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8639148464163062783}
   m_LocalRotation: {x: 0.000000057601163, y: 0.000000057601163, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.784471, y: 0.5618486, z: 6.635616}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.4362447, y: 2.4362447, z: 2.4362442}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ BoxCollider:
   m_Center: {x: -0.000000017811548, y: 0.00012344719, z: -0.00009838585}
 --- !u!96 &-760303980748679077
 TrailRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -210,11 +210,14 @@ TrailRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
+  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
+  m_ApplyActiveColorSpace: 0
 --- !u!114 &2291946146710322720
 MonoBehaviour:
   m_ObjectHideFlags: 0

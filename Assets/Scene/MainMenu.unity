@@ -968,7 +968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 211.7, y: 221.7}
+  m_AnchoredPosition: {x: 222.7, y: 221.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1265684699
@@ -1360,7 +1360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42, y: 221.6}
+  m_AnchoredPosition: {x: 30, y: 221.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1391083616
@@ -1383,10 +1383,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u041E\u041B\u0418\u0413\u041E\u041D"
+  m_text: GUN STORE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 129683ba043c9cd428044c954fd54a18, type: 2}
-  m_sharedMaterial: {fileID: -5237978717527297727, guid: 129683ba043c9cd428044c954fd54a18, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45da536f4f67f4a47b78aa3135fdf299, type: 2}
+  m_sharedMaterial: {fileID: -8421010821798479192, guid: 45da536f4f67f4a47b78aa3135fdf299, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

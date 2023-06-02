@@ -1,49 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI;
-    public XRNode inputSource = XRNode.LeftHand; // Источник ввода для открытия меню паузы
-
-    private bool isPaused = false;
-
-    private void Start()
+    public GameObject wristUI;
+    public bool activeWristUI = true;
+    // Start is called before the first frame update
+    void Start()
     {
-        pauseMenuUI.SetActive(false);
+        DisplayWristUI();
     }
 
-    private void Update()
+    // Update is called once per frame
+    public void PauseButtonPressed(InputAction.CallbackContext context)
     {
-        // Проверяем ввод с контроллера VR для открытия/закрытия меню паузы
-        InputDevice device = InputDevices.GetDeviceAtXRNode(inputSource);
-        if (device.TryGetFeatureValue(CommonUsages.menuButton, out bool menuButtonValue) && menuButtonValue)
+        if (context.performed)
+            DisplayWristUI();
+    }
+    public void DisplayWristUI()
+    {
+        if(activeWristUI)
         {
-            if (!isPaused)
-            {
-                PauseGame();
-            }
-            else
-            {
-                Resume();
-            }
+            wristUI.SetActive(false);
+            activeWristUI = false;
+            Time.timeScale = 1;
+        }
+        else if (!activeWristUI)
+        {
+            wristUI.SetActive(true);
+            activeWristUI = true;
+            Time.timeScale = 0;
         }
     }
-
-    public void Resume()
+    public void RestartGame()
     {
-        pauseMenuUI.SetActive(false);
+        wristUI.SetActive(false);
         Time.timeScale = 1f;
-        isPaused = false;
+        activeWristUI = false;
     }
-
-    void PauseGame()
-    {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
-    }
-
     public void ExitGame()
     {
         Application.Quit();
